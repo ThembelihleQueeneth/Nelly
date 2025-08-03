@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Nelly!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .birthday-card {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .title {
+            font-family: 'Pacifico', cursive;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .cake {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .plate {
+            width: 240px;
+            height: 20px;
+            background: #f5f5f5;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -10px;
+            left: -20px;
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .layer {
+            position: absolute;
+            border-radius: 10px;
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .layer-bottom {
+            width: 200px;
+            height: 80px;
+            background: #f8c9d6;
+            bottom: 0;
+        }
+
+        .layer-middle {
+            width: 160px;
+            height: 70px;
+            background: #f5a8c1;
+            bottom: 80px;
+            left: 20px;
+        }
+
+        .layer-top {
+            width: 120px;
+            height: 60px;
+            background: #f18baa;
+            bottom: 150px;
+            left: 40px;
+        }
+
+        .icing {
+            width: 120px;
+            height: 20px;
+            background: #fff;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 210px;
+            left: 40px;
+        }
+
+        .drip {
+            width: 20px;
+            height: 30px;
+            background: #fff;
+            border-radius: 0 0 10px 10px;
+            position: absolute;
+        }
+
+        .drip1 {
+            left: 50px;
+            bottom: 190px;
+        }
+
+        .drip2 {
+            left: 90px;
+            bottom: 190px;
+        }
+
+        .drip3 {
+            left: 130px;
+            bottom: 190px;
+        }
+
+        .candle {
+            width: 16px;
+            height: 50px;
+            background: #ffd166;
+            position: absolute;
+            bottom: 210px;
+            left: 92px;
+            z-index: 10;
+        }
+
+        .flame {
+            width: 20px;
+            height: 40px;
+            background: #ffef62;
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 20px #ffef62, 0 0 60px #ffef62, 0 0 100px #ffef62;
+            position: absolute;
+            top: -40px;
+            left: -2px;
+            animation: flicker 1.5s infinite alternate;
+            transform-origin: bottom;
+        }
+
+        @keyframes flicker {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(0.9);
+                opacity: 0.8;
+            }
+        }
+
+        .message {
+            margin: 30px 0;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .message p {
+            margin-bottom: 10px;
+        }
+
+        .signature {
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        .surprise-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .surprise-btn:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #f00;
+            opacity: 0;
+            animation: confetti 5s ease-in-out infinite;
+        }
+
+        .confetti:nth-child(1) {
+            background-color: #f00;
+            left: 10%;
+            animation-delay: 0;
+        }
+        .confetti:nth-child(2) {
+            background-color: #0f0;
+            left: 20%;
+            animation-delay: 0.5s;
+        }
+        .confetti:nth-child(3) {
+            background-color: #00f;
+            left: 30%;
+            animation-delay: 1.5s;
+        }
+        .confetti:nth-child(4) {
+            background-color: #ff0;
+            left: 40%;
+            animation-delay: 2s;
+        }
+        .confetti:nth-child(5) {
+            background-color: #f0f;
+            left: 50%;
+            animation-delay: 3s;
+        }
+        .confetti:nth-child(6) {
+            background-color: #0ff;
+            left: 60%;
+            animation-delay: 1s;
+        }
+        .confetti:nth-child(7) {
+            background-color: #ff6b6b;
+            left: 70%;
+            animation-delay: 2.5s;
+        }
+        .confetti:nth-child(8) {
+            background-color: #6bff6b;
+            left: 80%;
+            animation-delay: 0.8s;
+        }
+        .confetti:nth-child(9) {
+            background-color: #6b6bff;
+            left: 90%;
+            animation-delay: 3.5s;
+        }
+        .confetti:nth-child(10) {
+            background-color: #ffff6b;
+            left: 95%;
+            animation-delay: 4s;
+        }
+
+        @keyframes confetti {
+            0% {
+                opacity: 0;
+                top: -10%;
+                transform: rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                top: 110%;
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 0;
+            width: 90%;
+            max-width: 800px;
+            margin-top: 50px;
+        }
+
+        .slideshow-container {
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .slide img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 0 3px 3px 0;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .close {
+            color: white;
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .close:hover {
+            color: #ff6b6b;
+        }
+
+        /* Dot indicators */
+        .dots {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active, .dot:hover {
+            background-color: #ff6b6b;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .title {
+                font-size: 2rem;
+            }
+            .cake {
+                width: 150px;
+                height: 150px;
+            }
+            .layer-bottom {
+                width: 150px;
+                height: 60px;
+            }
+            .layer-middle {
+                width: 120px;
+                height: 50px;
+                bottom: 60px;
+                left: 15px;
+            }
+            .layer-top {
+                width: 90px;
+                height: 45px;
+                bottom: 110px;
+                left: 30px;
+            }
+            .icing {
+                width: 90px;
+                bottom: 155px;
+                left: 30px;
+            }
+            .drip1 {
+                left: 35px;
+                bottom: 140px;
+            }
+            .drip2 {
+                left: 65px;
+                bottom: 140px;
+            }
+            .drip3 {
+                left: 95px;
+                bottom: 140px;
+            }
+            .candle {
+                bottom: 155px;
+                left: 67px;
+            }
+            .modal-content {
+                width: 95%;
+                margin-top: 30px;
+            }
+            .slide img {
+                max-height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        
+        <div class="birthday-card animate__animated animate__zoomIn">
+            <h1 class="title">Happy Birthday Nelly!</h1>
+            <div class="cake">
+                <div class="plate"></div>
+                <div class="layer layer-bottom"></div>
+                <div class="layer layer-middle"></div>
+                <div class="layer layer-top"></div>
+                <div class="icing"></div>
+                <div class="drip drip1"></div>
+                <div class="drip drip2"></div>
+                <div class="drip drip3"></div>
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+            </div>
+            <div class="message">
+                <p>Wishing you a day filled with happiness,</p>
+                <p>a year filled with joy,</p>
+                <p>and a life filled with love!</p>
+            </div>
+            <button id="surpriseBtn" class="surprise-btn">Click Here</button>
+        </div>
+    </div>
+
+    <!-- The Modal with Slideshow -->
+    <div id="photoModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <div class="slideshow-container">
+                <!-- Replace these with your actual images -->
+                <div class="slide active">
+                    <img src="images/pic1.jpg" alt="Birthday celebration">
+                </div>
+                <div class="slide">
+                    <img src="images/pic2.jpg" alt="Birthday cake">
+                </div>
+                <div class="slide">
+                    <img src="images/pic3.jpg" alt="Birthday party">
+                </div>
+                <div class="slide">
+                    <img src="images/pic4.jpg" alt="Birthday gifts">
+                </div>
+                 <div class="slide">
+                    <img src="images/pic5.jpg" alt="Birthday gifts">
+                </div>
+                 <div class="slide">
+                    <img src="images/pic6.jpg" alt="Birthday gifts">
+                </div>
+                 <div class="slide">
+                    <img src="images/pic8.jpg" alt="Birthday gifts">
+                </div>
+                 
+                
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <div class="dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+                <span class="dot" onclick="currentSlide(7)"></span>
+               
+            </div>
+        </div>
+    </div>
+
+    <audio id="birthdaySong" loop>
+        <source src="images/birthday_song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        let slideIndex = 1;
+        
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            
+            for (i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            slides[slideIndex-1].classList.add("active");
+            dots[slideIndex-1].classList.add("active");
+        }
+        
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const surpriseBtn = document.getElementById('surpriseBtn');
+            const modal = document.getElementById('photoModal');
+            const closeBtn = document.querySelector('.close');
+            const birthdaySong = document.getElementById('birthdaySong');
+            
+            // Surprise button click handler
+            surpriseBtn.addEventListener('click', function() {
+                modal.style.display = 'block';
+                birthdaySong.play();
+                showSlides(slideIndex);
+                
+                // Add more confetti for celebration
+                for (let i = 0; i < 50; i++) {
+                    createConfetti();
+                }
+            });
+            
+            // Close modal button
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+                birthdaySong.pause();
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    birthdaySong.pause();
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(event) {
+                if (modal.style.display === 'block') {
+                    if (event.key === 'ArrowLeft') {
+                        plusSlides(-1);
+                    } else if (event.key === 'ArrowRight') {
+                        plusSlides(1);
+                    } else if (event.key === 'Escape') {
+                        modal.style.display = 'none';
+                        birthdaySong.pause();
+                    }
+                }
+            });
+            
+            // Function to create additional confetti
+            function createConfetti() {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                
+                // Random properties
+                const colors = ['#f00', '#0f0', '#00f', '#ff0', '#f0f', '#0ff', '#ff6b6b', '#6bff6b', '#6b6bff'];
+                const left = Math.random() * 100;
+                const animationDuration = Math.random() * 3 + 2;
+                const delay = Math.random() * 5;
+                const size = Math.random() * 10 + 5;
+                
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = `${left}%`;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.animationDuration = `${animationDuration}s`;
+                confetti.style.animationDelay = `${delay}s`;
+                
+                document.querySelector('.container').appendChild(confetti);
+                
+                // Remove confetti after animation completes
+                setTimeout(() => {
+                    confetti.remove();
+                }, (animationDuration + delay) * 1000);
+            }
+            
+            // Make the candle flame interactive
+            const flame = document.querySelector('.flame');
+            flame.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.2)';
+                this.style.boxShadow = '0 0 30px #ffef62, 0 0 80px #ffef62, 0 0 130px #ffef62';
+            });
+            
+            flame.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 0 20px #ffef62, 0 0 60px #ffef62, 0 0 100px #ffef62';
+            });
+        });
+    </script>
+</body>
+</html>
